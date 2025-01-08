@@ -17,22 +17,22 @@ Le backoffice permet d'effectuer les actions suivantes :
 - **PHP** pour le backend
 - **MySQL** pour la base de données
 - **phpMyAdmin** pour la gestion de la base de données 
-- --- 
-- ## 🚀 Installation du projet 
+--- 
+ ## 🚀 Installation du projet 
 
  ### ✅ Prérequis
  
 - Un serveur local (**XAMPP**, **WAMP** ou **MAMP**)
 - **phpMyAdmin** pour gérer la base de données 
 - Un virtualHost
-- --- 
+--- 
  ### 📂 Étapes pour installer la base de données 
  
 1. **Démarrez votre serveur local (Apache & MySQL)**
 2. **Accédez à phpMyAdmin** depuis votre navigateur : 
  Exemple : `http://localhost/phpmyadmin` 
 1. **Créez une nouvelle base de données** appelée `bdshop`.
-2. **Importez le fichier SQL** fourni dans le projet : 
+2. **Importez le fichier SQL** fourni dans le projet  dans 'ressources/database/': 
 	- Rendez-vous dans l'onglet **Importer**.
 	- Cliquez sur **Choisir un fichier**, puis sélectionnez le fichier `bdshop.sql`. 
 	- Cliquez sur **Exécuter**. 
@@ -52,21 +52,37 @@ Le backoffice permet d'effectuer les actions suivantes :
 	INSERT INTO `table_admin` ( `admin_lastname`, `admin_firstname`, `admin_mail`, `admin_password`) 
     VALUES ( '**NOM**', '**PRENOM**', '**EMAIL**', '**MOT DE PASSE HASHÉ**');
 	```
-- --- 
-- ### 📂 Structure du projet 
+--- 
+ ### 📂 Structure du projet 
  ```bash
 BDSHOP/ 
+├── README.md # Guide de présentation du projet
 ├── index.php # Page d'accueil du backoffice 
 ├── admin/
 │      ├──product/
-│      │     ├──index.php # Page pour afficher les BDs 
-│      │     ├──form.php # Page pour ajouter ou modifier une BD
-│      │     ├──process.php # Page pour le traitement lors de l'ajout ou la modification d'une BD
-│      │     └──delete.php # Page pour supprimer une BD
+│      │     ├── index.php # Page pour afficher les BDs 
+│      │     ├── form.php # Page pour ajouter ou modifier une BD
+│      │     ├── process.php # Page pour le traitement lors de l'ajout ou la modification d'une BD
+│      │     └── delete.php # Page pour supprimer une BD
 │      └──includes/
-│            ├──connect.php # Page qui permet de faire la connexion à la base de données
-│            └──protect.php # Page qui vérifie la variable globale $_SESSION
+│            ├── connect.php # Page qui permet de faire la connexion à la base de données
+│            └── protect.php # Page qui vérifie la variable globale $_SESSION
+│   
 └── ressources/
-        ├──images/
-
+       │ # Le dossier 'ressources' est uniquement pour le README.md. À ne pas prendre en compte pour l'exercice.
+       └──database/
+             └── bdshop.sql # Base de données des BDs
 ```
+
+### 📝 Changelog
+
+Toutes les modifications importantes du projet seront documentées ici.  
+
+## [1.0.0] - 07-01-2025
+### Ajouté
+- Ajout de la base de données `bdshop.sql` dans PHPMyAdmin.
+- Création d'une table `table_admin`.
+- Création d'un utilisateur dans la table `table_admin`.
+- Création d'une page de connexion.
+- Création d'une page 'protect.php' qui vérifie la variable de session à chaque page du BackOffice.
+
