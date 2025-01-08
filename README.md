@@ -1,6 +1,6 @@
 # 📚 BDSHOP - CRUD Backoffice (Cours PHP) 
 
- Bienvenue dans le dépôt de **BDSHOP**, un projet réalisé dans le cadre d'un cours PHP. Ce projet consiste à développer un backoffice permettant de gérer les **bandes dessinées** d'une boutique fictive appelée **BDSHOP** en utilisant un CRUD (Create, Read, Update, Delete). 
+ Bienvenue dans le dépôt de **BDSHOP**, un projet réalisé dans le cadre des cours PHP donné par **Maxime Brunelli**.Ce projet consiste à développer un backoffice permettant de gérer les **bandes dessinées** d'une boutique fictive appelée **BDSHOP** en utilisant un CRUD (Create, Read, Update, Delete). 
  
 ---
 ## 📋 Fonctionnalités du CRUD
