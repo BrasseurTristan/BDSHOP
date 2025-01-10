@@ -48,6 +48,7 @@ Le backoffice permet d'effectuer les actions suivantes :
 
     ```
 4. Créez votre compte avec la requête suivante en replacant les valeurs:
+
 	```SQL
 	INSERT INTO `table_admin` ( `admin_lastname`, `admin_firstname`, `admin_mail`, `admin_password`) 
     VALUES ( '**NOM**', '**PRENOM**', '**EMAIL**', '**MOT DE PASSE HASHÉ**');
@@ -55,28 +56,36 @@ Le backoffice permet d'effectuer les actions suivantes :
 --- 
  ### 📂 Structure du projet 
  ```bash
-BDSHOP/ 
-├── README.md # Guide de présentation du projet
-├── index.php # Page d'accueil du backoffice 
-├── admin/
-│      ├──product/
-│      │     ├── index.php # Page pour afficher les BDs 
-│      │     ├── form.php # Page pour ajouter ou modifier une BD
-│      │     ├── process.php # Page pour le traitement lors de l'ajout ou la modification d'une BD
-│      │     └── delete.php # Page pour supprimer une BD
-│      └──includes/
-│            ├── connect.php # Page qui permet de faire la connexion à la base de données
-│            └── protect.php # Page qui vérifie la variable globale $_SESSION
-│   
-└── ressources/
-       │ # Le dossier 'ressources' est uniquement pour le README.md. À ne pas prendre en compte pour l'exercice.
-       └──database/
-             └── bdshop.sql # Base de données des BDs
+    BDSHOP/ 
+    ├── README.md # Guide de présentation du projet
+    ├── index.php # Page d'accueil du backoffice 
+    ├── admin/
+    │      ├──product/
+    │      │     ├── index.php # Page pour afficher les BDs 
+    │      │     ├── form.php # Page pour ajouter ou modifier une BD
+    │      │     ├── process.php # Page pour le traitement lors de l'ajout ou la modification d'une BD
+    │      │     └── delete.php # Page pour supprimer une BD
+    │      └──includes/
+    │            ├── functions.php # Page contenant les fonctions créées
+    │            ├── connect.php # Page qui permet de faire la connexion à la base de données
+    │            └── protect.php # Page qui vérifie la variable globale $_SESSION
+    │   
+    └── ressources/
+        │ # Le dossier 'ressources' est uniquement pour le README.md. À ne pas prendre en compte pour l'exercice.
+        └──database/
+                └── bdshop.sql # Base de données des BDs
 ```
 
 ### 📝 Changelog
 
 Toutes les modifications importantes du projet seront documentées ici.  
+## [1.1.0] - 10-01-2025
+### Ajouté
+- Affichage des produits dans un tableau dans la page 'index.php'.
+- Création de la page permettant de supprimer un produit.
+- Création du formulaire permettant de créer un produit sur la page 'form.php'.
+
+
 
 ## [1.0.0] - 07-01-2025
 ### Ajouté

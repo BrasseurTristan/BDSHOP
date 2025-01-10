@@ -1,5 +1,5 @@
 <?php
-// Permet de travailler avec les variables de sessions $_SESSION
+// Permet de travailler avec la variable de session $_SESSION
 session_start();
 // On vérifie que la clé 'is_logged' de la variable $_SESSION contient 'oui'
 if (!isset($_SESSION['is_logged']) || $_SESSION['is_logged'] != 'oui'){

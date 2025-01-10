@@ -21,7 +21,7 @@ if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
             // On initialise la $_SESSION qui à pour clé 'is_logged' et pour valeur 'oui'.
             $_SESSION['is_logged'] = 'oui';
             // et ensuite on redirige l'utilisateur vers la page index.php.
-            header("Location:index.php");
+            header("Location:product/index.php");
         };
     }
 }   
@@ -42,6 +42,7 @@ if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
                 <div class="col d-flex justify-content-center mt-5">
                     <h1>BD-SHOP</h1>
                 </div>
+                <!-- Bien faire attention que l'attribut 'for' dans la balise <label> soit égale à l'attribut 'name' dans la balise <input> -->
                     <label class="form-label" for="admin_mail">Email address</label>
                     <input type="email"name="admin_mail" id="admin_mail" class="form-control" required/>
                     <label class="form-label" for="admin_password">Password</label>
@@ -58,3 +59,9 @@ if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
+
+
+
+
+
+
