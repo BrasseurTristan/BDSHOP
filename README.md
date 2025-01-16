@@ -61,25 +61,30 @@ Le backoffice permet d'effectuer les actions suivantes :
     ├── index.php # Page d'accueil du backoffice.
     ├── admin/
     │      ├── login.php # Page de connexion.
-    │      ├──product/
+    │      ├── product/
     │      │     ├── index.php # Page pour afficher les BDs. 
     │      │     ├── form.php # Page pour ajouter ou modifier une BD.
     │      │     ├── process.php # Page pour le traitement lors de l'ajout ou la modification d'une BD.
     │      │     └── delete.php # Page pour supprimer une BD.
-    │      └──includes/
+    │      └── includes/
     │            ├── functions.php # Page contenant les fonctions créées.
     │            ├── connect.php # Page qui permet de faire la connexion à la base de données.
     │            └── protect.php # Page qui vérifie la variable globale $_SESSION.
     │   
     └── ressources/
         │ # Le dossier 'ressources' est uniquement pour le README.md. À ne pas prendre en compte pour l'exercice.
-        └──database/
+        └── database/
                 └── bdshop.sql # Base de données des BDs
 ```
 
 ### 📝 Changelog
 
 Toutes les modifications importantes du projet seront documentées ici.  
+
+#### [1.2.0] - 15-01-2025
+##### Ajouté
+- Création de la pagination pour la liste des produits.
+
 #### [1.2.0] - 15-01-2025
 ##### Ajouté
 - Ajout des conditions dans la page 'process.php' au cas où l'utilisateur veux modifier un produit.

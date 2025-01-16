@@ -113,7 +113,7 @@ $recordset_cat = $stmt->fetchAll();
         <!-- On associe à l'attribut 'value' l'identifiant du produit dans un 'input' caché qui va être utiliser dans la page de traitement. -->
         <input type="hidden" name="product_id" value="<?= hsc($product_id) ?>">
         <button type="submit" class="btn btn-primary mt-2">Ajouter</button>
-        <a href="./index.php" class="btn btn-warning mt-2">Retour</a>
+        <a href="./index.php" class="btn btn-outline-dark mt-2">Retour</a>
     </form>
 
 </body>
