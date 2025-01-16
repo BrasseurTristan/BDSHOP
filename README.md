@@ -57,18 +57,19 @@ Le backoffice permet d'effectuer les actions suivantes :
  ### 📂 Structure du projet 
  ```bash
     BDSHOP/ 
-    ├── README.md # Guide de présentation du projet
-    ├── index.php # Page d'accueil du backoffice 
+    ├── README.md # Guide de présentation du projet.
+    ├── index.php # Page d'accueil du backoffice.
     ├── admin/
+    │      ├── login.php # Page de connexion.
     │      ├──product/
-    │      │     ├── index.php # Page pour afficher les BDs 
-    │      │     ├── form.php # Page pour ajouter ou modifier une BD
-    │      │     ├── process.php # Page pour le traitement lors de l'ajout ou la modification d'une BD
-    │      │     └── delete.php # Page pour supprimer une BD
+    │      │     ├── index.php # Page pour afficher les BDs. 
+    │      │     ├── form.php # Page pour ajouter ou modifier une BD.
+    │      │     ├── process.php # Page pour le traitement lors de l'ajout ou la modification d'une BD.
+    │      │     └── delete.php # Page pour supprimer une BD.
     │      └──includes/
-    │            ├── functions.php # Page contenant les fonctions créées
-    │            ├── connect.php # Page qui permet de faire la connexion à la base de données
-    │            └── protect.php # Page qui vérifie la variable globale $_SESSION
+    │            ├── functions.php # Page contenant les fonctions créées.
+    │            ├── connect.php # Page qui permet de faire la connexion à la base de données.
+    │            └── protect.php # Page qui vérifie la variable globale $_SESSION.
     │   
     └── ressources/
         │ # Le dossier 'ressources' est uniquement pour le README.md. À ne pas prendre en compte pour l'exercice.
@@ -79,16 +80,20 @@ Le backoffice permet d'effectuer les actions suivantes :
 ### 📝 Changelog
 
 Toutes les modifications importantes du projet seront documentées ici.  
-## [1.1.0] - 10-01-2025
-### Ajouté
+#### [1.2.0] - 15-01-2025
+##### Ajouté
+- Ajout des conditions dans la page 'process.php' au cas où l'utilisateur veux modifier un produit.
+- Modification du formulaire permettant de créer ou éditer un produit sur la page 'form.php' grâce à la variable $_GET.
+
+#### [1.1.0] - 10-01-2025
+##### Ajouté
 - Affichage des produits dans un tableau dans la page 'index.php'.
 - Création de la page permettant de supprimer un produit.
 - Création du formulaire permettant de créer un produit sur la page 'form.php'.
 
 
-
-## [1.0.0] - 07-01-2025
-### Ajouté
+#### [1.0.0] - 07-01-2025
+##### Ajouté
 - Ajout de la base de données `bdshop.sql` dans PHPMyAdmin.
 - Création d'une table `table_admin`.
 - Création d'un utilisateur dans la table `table_admin`.

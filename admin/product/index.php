@@ -6,8 +6,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/connect.php";
 // On importe les fonctions que l'on a créer depuis le fichier functions.php 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/functions.php";
 
-$sql = 'SELECT * FROM table_product LIMIT 25';
-// $sql = 'SELECT tp.product_id AS id, tp.product_name AS Nom, tp.product_author AS auteur,tp.product_image AS image, tt.type_name AS type, tc.category_name AS categorie FROM table_product tp INNER JOIN table_type tt ON tp.product_type_id = tt.type_id INNER JOIN table_product_category tpc ON tp.product_id = tpc.product_category_product_id INNER JOIN table_category tc ON tc.category_id = tpc.product_category_category_id;';
+$sql = 'SELECT * FROM table_product ORDER BY `product_id` DESC LIMIT 25';
+// $sql = 'SELECT tp.product_id AS id, tp.product_name AS nom, tp.product_author AS auteur,tp.product_image AS image, tt.type_name AS type, tc.category_name AS categorie FROM table_product tp INNER JOIN table_type tt ON tp.product_type_id = tt.type_id INNER JOIN table_product_category tpc ON tp.product_id = tpc.product_category_product_id INNER JOIN table_category tc ON tc.category_id = tpc.product_category_category_id;';
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $recordset = $stmt->fetchAll();
@@ -21,6 +21,10 @@ $recordset = $stmt->fetchAll();
     <title>Liste des BDs</title>
 </head>
 <body>
+    <div class="container">
+        <h1>Liste des bandes dessinées</h1>
+        <a href="form.php" class="btn btn-primary">Ajouter un livre</a>
+</div>
     <table class="table container table-hover table-responsive ">
         <caption> Liste des produits </caption>
         <thead class="bg-primary">
@@ -34,20 +38,20 @@ $recordset = $stmt->fetchAll();
         </thead>
         <tbody>
             <?php
-            // On utilise la boucle 'foreach' pour afficher la totalité de la variable '$recordset' qui contient un tableau associatif avec le résultat de la requête SQL
+            // On utilise la boucle 'foreach' pour afficher la totalité de la variable '$recordset' qui contient un tableau associatif grâce au résultat de la requête SQL
             foreach ($recordset as $row) {
             ?>
             <tr>
             <!-- On affiche dans chaque balise <td> les valeurs voulu en écrivant la clé correspondante du tableau associatif -->
                 <td><?=hsc($row['product_id']);?></td>
-                <td><?=hsc($row['product_image']);?></td>
                 <td><?=hsc($row['product_name']);?></td>
                 <td><?=hsc($row['product_author']);?></td>
                 <td><?=hsc($row['product_price']);?>$</td>
                 <!-- Dans l'attribut 'href' des boutons on ajoute un paramètre dans l'URL qui à pour clé 'id' et pour valeur l'id du produit -->
                 <td>
                 <a class="btn btn-primary btn-sm" href="form.php?id=<?= htmlspecialchars($row['product_id']); ?>">Modifier</a>
-                <a class="btn btn-danger btn-sm" href="delete.php?id=<?= htmlspecialchars($row['product_id']); ?>">Supprimer</a></td>
+                <a class="btn btn-danger btn-sm" href="delete.php?id=<?= htmlspecialchars($row['product_id']); ?>">Supprimer</a>
+            </td>
             </tr>
             <?php } ?>
         </tbody>
@@ -55,6 +59,3 @@ $recordset = $stmt->fetchAll();
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
-
-
-<!-- SELECT tp.product_id AS id, tp.product_name AS Nom, tp.product_author AS auteur,tp.product_image AS image, tt.type_name AS type, tc.category_name AS categorie FROM table_product tp INNER JOIN table_type tt ON tp.product_type_id = tt.type_id INNER JOIN table_product_category tpc ON tp.product_id = tpc.product_category_product_id INNER JOIN table_category tc ON tc.category_id = tpc.product_category_category_id; -->
