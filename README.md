@@ -71,7 +71,7 @@ Le backoffice permet d'effectuer les actions suivantes :
     │            ├── functions.php # Page contenant les fonctions créées.
     │            ├── connect.php # Page qui permet de faire la connexion à la base de données.
     │            └── protect.php # Page qui vérifie la variable globale $_SESSION.
-    │   
+    ├── upload/ # Dossier qui permet de stocker les fichiers téléchargés depuis la page form.php
     └── ressources/
         │ # Le dossier 'ressources' est uniquement pour le README.md. À ne pas prendre en compte pour l'exercice.
         └── database/
