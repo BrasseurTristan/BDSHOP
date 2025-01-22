@@ -61,6 +61,7 @@ Le backoffice permet d'effectuer les actions suivantes :
     ├── index.php # Page d'accueil du backoffice.
     ├── admin/
     │      ├── login.php # Page de connexion.
+    │      ├── logout.php # Page de déconnexion.
     │      ├── product/
     │      │     ├── index.php # Page pour afficher les BDs. 
     │      │     ├── form.php # Page pour ajouter ou modifier une BD.
@@ -79,9 +80,15 @@ Le backoffice permet d'effectuer les actions suivantes :
 
 ### 📝 Changelog
 
-Toutes les modifications importantes du projet seront documentées ici.  
+Toutes les modifications importantes du projet seront documentées ici. 
 
-#### [1.2.0] - 15-01-2025
+#### [1.4.0] - 15-01-2025
+##### Ajouté
+- Création de la page de déconnexion.
+- Ajout d'un input de type 'file' dans 'form.php'.
+- Modification de la page 'process.php' afin de rediriger le fichier téléchargé à l'emplacement voulu.
+
+#### [1.3.0] - 15-01-2025
 ##### Ajouté
 - Création de la pagination pour la liste des produits.
 

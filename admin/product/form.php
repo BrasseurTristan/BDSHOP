@@ -10,6 +10,8 @@ $product_name = '';
 $product_price = 0;
 $product_author = '';
 $product_stock = 0;
+$product_category = 0;
+$product_type_id = 0;
 // var_dump($_GET);
 // Si l'utilisateur clique sur le bouton 'Modifier' on vérifie que '$_GET['id']' existe et qu'il est supérieur à zéro.
 if (isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0) {
@@ -65,7 +67,10 @@ $recordset_cat = $stmt->fetchAll();
         <div class="mb-1">
             <label for="name" class="form-label">NOM</label>
             <input type="text" class="form-control" name="product_name" id="name" aria-describedby="Name" value="<?= hsc($product_name) ?>">
-
+        </div>
+        <div class="mb-1">
+            <label class="form-label" for="image">IMAGE</label>
+            <input type="file" class="form-control" name="product_image" id="image">
         </div>
         <div class="mb-1">
             <label for="author" class="form-label">AUTEUR</label>

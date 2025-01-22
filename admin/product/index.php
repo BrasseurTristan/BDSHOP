@@ -38,9 +38,10 @@ $recordset = $stmt->fetchAll();
 </head>
 
 <body>
-    <div class="container">
+    <div class="container text-center">
         <h1>Liste des bandes dessinées</h1>
         <a href="form.php" class="btn btn-primary btn-lg">Ajouter un livre</a>
+        <a href="../logout.php" class="btn btn-warning btn-lg">Déconnexion</a>
     </div>
     <table class="table container table-hover table-responsive ">
         <caption> Liste des produits </caption>
@@ -65,7 +66,7 @@ $recordset = $stmt->fetchAll();
                     <td><?= hsc($row['product_author']); ?></td>
                     <td><?= hsc($row['product_price']); ?>$</td>
                     <!-- Dans l'attribut 'href' des boutons on ajoute un paramètre dans l'URL qui à pour clé 'id' et pour valeur l'id du produit -->
-                    <td>
+                    <td class='text-center'>
                         <a class="btn btn-primary btn-sm" href="form.php?id=<?= htmlspecialchars($row['product_id']); ?>">Modifier</a>
                         <a class="btn btn-danger btn-sm" href="delete.php?id=<?= htmlspecialchars($row['product_id']); ?>">Supprimer</a>
                     </td>

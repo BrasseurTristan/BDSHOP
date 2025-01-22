@@ -4,7 +4,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/connect.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/functions.php";
 // On vérifie si le $_POST['sent'] existe et si le contenu est égal à 'ok'
 if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
-    // Permet de récuperer le prochain ID qui va être insérer dans la base de donnée. 
+
+    var_dump($_FILES['product_image']);
+    // Fonction qui s'assure que c'est fichier téléchargé par POST. si le fichier est valide, il est déplacé jusqu'au dossier 'upload'.
+    move_uploaded_file($_FILES['product_image']['tmp_name'],$_SERVER['DOCUMENT_ROOT'].'/upload/'.$_FILES['product_image']['name']);
+    exit();
+    // Permet de récuperer le prochain ID qui va être insérer dans la base de données. 
     // Pas la meilleure façon de faire!
     $sql = "SELECT AUTO_INCREMENT AS id FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'table_product' AND TABLE_SCHEMA = 'bdshop';";
     $stmt = $db -> prepare($sql);
@@ -63,6 +68,6 @@ if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
         $stmt -> execute();
 
     }
-    header("Location:index.php");
+    // header("Location:index.php");
 }
 ?>
