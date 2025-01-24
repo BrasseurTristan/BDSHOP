@@ -7,9 +7,15 @@ function hsc($value){
         return htmlspecialchars($value);
     }
 }
+
 // Même fonction mais écrite avec une ternaire
 // function hsc($value){
 //     return is_null($value)?'': htmlspecialchars($value);
 // }
 
+// Fonction qui permet de faire la redirection + exit().
+function redirect($url){
+    header("Location:".$url);
+    exit();
+}
 ?>

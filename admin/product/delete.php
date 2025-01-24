@@ -1,7 +1,7 @@
 <?php
-
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/protect.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/connect.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/functions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/protect.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/connect.php";
 
 // On vérifie si '$_GET['id']' existe et si la valeur est numérique.
 if(isset($_GET['id']) && is_numeric($_GET['id'])) {
@@ -11,7 +11,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     //Suppression du produit par rapport à l'ID.
     $stmt->execute([':id'=>$_GET['id']]);
     // Redirection vers la page 'index.php'.
-    header('Location:index.php');
+    redirect('/admin/login.php');
 }
 
 ?>

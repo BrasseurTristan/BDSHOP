@@ -1,7 +1,8 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/protect.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/connect.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/functions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/functions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/protect.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/connect.php";
+
 
 $title = 'Page de création';
 // Initialisation des variables si l'utilisateur à cliquer sur le bouton 'Ajouter un livre'.
@@ -115,6 +116,7 @@ $recordset_cat = $stmt->fetchAll();
             </select>
         </div>
         <input type="hidden" name="sent" value="ok">
+        <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
         <!-- On associe à l'attribut 'value' l'identifiant du produit dans un 'input' caché qui va être utiliser dans la page de traitement. -->
         <input type="hidden" name="product_id" value="<?= hsc($product_id) ?>">
         <button type="submit" class="btn btn-primary mt-2">Ajouter</button>

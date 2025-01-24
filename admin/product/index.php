@@ -1,10 +1,10 @@
 <?php
-// require_once signifie qu'il as besoin du fichier 'protect.php', fichier qui va faire la vérification de l'existance de la variable de session $_SESSION et son contenu. 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/protect.php";
-// connect.php va nous permettre d'avoir accès à la base de données.
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/connect.php";
 // On importe les fonctions que l'on a créer depuis le fichier functions.php 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/functions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/functions.php";
+// require_once signifie qu'il as besoin du fichier 'protect.php', fichier qui va faire la vérification de l'existance de la variable de session $_SESSION et son contenu. 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/protect.php";
+// connect.php va nous permettre d'avoir accès à la base de données.
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/connect.php";
 
 // Page par défaut
 $page = 1;
@@ -67,8 +67,8 @@ $recordset = $stmt->fetchAll();
                     <td><?= hsc($row['product_price']); ?>$</td>
                     <!-- Dans l'attribut 'href' des boutons on ajoute un paramètre dans l'URL qui à pour clé 'id' et pour valeur l'id du produit -->
                     <td class='text-center'>
-                        <a class="btn btn-primary btn-sm" href="form.php?id=<?= htmlspecialchars($row['product_id']); ?>">Modifier</a>
-                        <a class="btn btn-danger btn-sm" href="delete.php?id=<?= htmlspecialchars($row['product_id']); ?>">Supprimer</a>
+                        <a class="btn btn-primary btn-sm" href="form.php?id=<?= hsc($row['product_id']); ?>&token=<?= $_SESSION['token']; ?>">Modifier</a>
+                        <a class="btn btn-danger btn-sm" href="delete.php?id=<?= hsc($row['product_id']); ?>&token=<?= $_SESSION['token']; ?>">Supprimer</a>
                     </td>
                 </tr>
             <?php } ?>

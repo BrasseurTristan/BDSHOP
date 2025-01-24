@@ -1,7 +1,8 @@
 <?php 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/protect.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/connect.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/functions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/functions.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/protect.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/connect.php";
+
 // On vérifie si le $_POST['sent'] existe et si le contenu est égal à 'ok'
 if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
 
@@ -68,6 +69,6 @@ if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
         $stmt -> execute();
 
     }
+    redirect('index.php');
     // header("Location:index.php");
 }
-?>
