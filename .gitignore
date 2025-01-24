@@ -2,3 +2,4 @@
 upload/*
 !upload/.gitkeep
 .DS_Store/
+.DS_Store
