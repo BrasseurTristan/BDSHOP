@@ -82,13 +82,17 @@ Le backoffice permet d'effectuer les actions suivantes :
 
 Toutes les modifications importantes du projet seront documentées ici. 
 
-#### [1.4.0] - 15-01-2025
+#### [1.5.0] - 24-01-2025
+##### Ajouté
+- Création d'un token de sécurité pour éviter les failles [CSRF](https://fr.wikipedia.org/wiki/Cross-site_request_forgery).
+
+#### [1.4.0] - 21-01-2025
 ##### Ajouté
 - Création de la page de déconnexion.
 - Ajout d'un input de type 'file' dans 'form.php'.
 - Modification de la page 'process.php' afin de rediriger le fichier téléchargé à l'emplacement voulu.
 
-#### [1.3.0] - 15-01-2025
+#### [1.3.0] - 16-01-2025
 ##### Ajouté
 - Création de la pagination pour la liste des produits.
 
