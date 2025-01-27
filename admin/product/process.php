@@ -3,13 +3,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/functions.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/protect.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/include/connect.php";
 
+if(!isset($_POST['token'])){
+    redirect('/admin/login.php');
+}
+
 // On vérifie si le $_POST['sent'] existe et si le contenu est égal à 'ok'
 if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
 
-    var_dump($_FILES['product_image']);
-    // Fonction qui s'assure que c'est fichier téléchargé par POST. si le fichier est valide, il est déplacé jusqu'au dossier 'upload'.
-    move_uploaded_file($_FILES['product_image']['tmp_name'],$_SERVER['DOCUMENT_ROOT'].'/upload/'.$_FILES['product_image']['name']);
-    exit();
     // Permet de récuperer le prochain ID qui va être insérer dans la base de données. 
     // Pas la meilleure façon de faire!
     $sql = "SELECT AUTO_INCREMENT AS id FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'table_product' AND TABLE_SCHEMA = 'bdshop';";
@@ -17,7 +17,7 @@ if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
     $stmt -> execute();
     $next_id_in_db = $stmt -> fetch();
     //Cela permet de concatener l'id avec 'BD0' et l'envoyer en tant que slug.
-
+    
     $slug = 'BD0'.$next_id_in_db['id'];
     // On vérifie si le $_POST['product_id'] est égal à '0'. Si oui cela veux dire que l'utilisateur veux ajouter une nouveau livre.
     if($_POST['product_id'] == 0){
@@ -69,6 +69,33 @@ if(isset($_POST['sent']) && $_POST['sent'] == 'ok') {
         $stmt -> execute();
 
     }
-    redirect('index.php');
-    // header("Location:index.php");
+
+
+    if(isset($_FILES['product_image']) && $_FILES['product_image']['error'] == 0){
+
+        $id = $_POST['product_id'] > 0 ? $_POST['product_id'] : $last_id;
+
+        if($_POST['product_id'] > 0){
+            $sql = 'SELECT product_image FROM table_product WHERE product_id = :id';
+            $stmt = $db->prepare($sql);
+            $stmt -> bindValue(':id',$id);
+            $stmt -> execute();
+            if($row = $stmt->fetch()){
+                if($row['product_image'] != '' && !is_null($row['product_image'])){
+                    if(file_exists($_SERVER['DOCUMENT_ROOT'].'/upload/'.$row['product_image'])){
+                        unlink($_SERVER['DOCUMENT_ROOT'].'/upload/'.$row['product_image']);
+                    }
+                }
+            }
+        }
+        // Fonction qui s'assure que c'est fichier téléchargé par POST. si le fichier est valide, il est déplacé jusqu'au dossier 'upload'.
+        move_uploaded_file($_FILES['product_image']['tmp_name'],$_SERVER['DOCUMENT_ROOT'].'/upload/'.$_FILES['product_image']['name']);
+        $sql = 'UPDATE table_product SET product_image = :product_image WHERE product_id = :product_id';
+        $stmt = $db->prepare($sql);
+        $stmt -> bindValue(':product_image',$_FILES['product_image']['name']);
+        $stmt -> bindValue(':product_id',$id);
+        $stmt -> execute();
+    }
 }
+
+redirect('index.php');

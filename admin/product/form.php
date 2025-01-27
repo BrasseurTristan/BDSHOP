@@ -34,10 +34,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0) {
     }
 }
 // Requête SQL qui va chercher toutes les informations concernant les types de produit.
-$sql_type = 'SELECT type_id AS id, type_name AS name FROM table_type';
-$stmt = $db->prepare($sql_type);
-$stmt->execute();
-$recordset_type = $stmt->fetchAll();
+    $sql_type = 'SELECT type_id AS id, type_name AS name FROM table_type';
+    $stmt = $db->prepare($sql_type);
+    $stmt->execute();
+    $recordset_type = $stmt->fetchAll();
 
 // Requête SQL qui va chercher toutes les informations concernant les catégories de produit.
 $sql_cat = 'SELECT category_id AS id, category_name AS name FROM table_category';
